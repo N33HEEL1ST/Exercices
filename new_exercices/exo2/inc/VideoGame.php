@@ -1,5 +1,7 @@
 <?php
 
+namespace Core\WebForce3 ;
+
 class VideoGame extends Game {
     protected $console ;
 

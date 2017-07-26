@@ -1,5 +1,7 @@
 <?php
 
+namespace Core\WebForce3 ;
+
 class CardGame extends Game{
 
     function __construct(

@@ -1,5 +1,7 @@
 <?php
 
+namespace Core\WebForce3 ;
+
 class Game {
     /**@var string */
     protected $title;
