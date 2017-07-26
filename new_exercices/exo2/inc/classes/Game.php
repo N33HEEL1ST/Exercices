@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\WebForce3 ;
+namespace Inc\Classes ;
 
 class Game {
     /**@var string */

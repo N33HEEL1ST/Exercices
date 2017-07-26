@@ -1,9 +1,8 @@
 <?php
 
-namespace Core\WebForce3 ;
+namespace Inc\Classes ;
 
-class VideoGame extends Game {
-    protected $console ;
+class CardGame extends Game{
 
     function __construct(
         $title ="",

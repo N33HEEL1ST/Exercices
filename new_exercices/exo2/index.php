@@ -1,15 +1,26 @@
 <?php
 
 
-// Include Car.php File
-require dirname(__FILE__).DIRECTORY_SEPARATOR."inc".DIRECTORY_SEPARATOR."Game.php" ;
-require dirname(__FILE__).DIRECTORY_SEPARATOR."inc".DIRECTORY_SEPARATOR."VideoGame.php" ;
-require dirname(__FILE__).DIRECTORY_SEPARATOR."inc".DIRECTORY_SEPARATOR."CardGame.php" ;
+// // Include Car.php File
+// require dirname(__FILE__).DIRECTORY_SEPARATOR."inc".DIRECTORY_SEPARATOR."Game.php" ;
+// require dirname(__FILE__).DIRECTORY_SEPARATOR."inc".DIRECTORY_SEPARATOR."VideoGame.php" ;
+// require dirname(__FILE__).DIRECTORY_SEPARATOR."inc".DIRECTORY_SEPARATOR."CardGame.php" ;
+
+// // AUTOLOAD : mise en route du chargement automatique des classes
+// spl_autoload_register(
+//     function($className){
+//         echo "</br> --------- AUTOLOAD --------- "." $className </br>";
+//         require dirname(__FILE__).DIRECTORY_SEPARATOR."inc".DIRECTORY_SEPARATOR.$className.".php" ;
+//     }
+// );
+
+// Mise en route du chargement automatque (PSR-4) des classes
+spl_autoload_register();
 
 // chercher les namespaces
-use Core\WebForce3\VideoGame as VideoGame ;
-use Core\WebForce3\CardGame as CardGame ;
-use Core\WebForce3\Game as Game ;
+use Inc\Classes\VideoGame as VideoGame ;
+use Inc\Classes\CardGame as CardGame ;
+use Inc\Classes\Game as Game ;
 
 $game_nba_2K16 = new VideoGame(
     "NBA 2K16", //$title="",
