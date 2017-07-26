@@ -2,6 +2,7 @@
 
 session_start();
 
+
 // Tableau contenant des données sur la configuration
 $config = array(
 	'db_host' => '',
