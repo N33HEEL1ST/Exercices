@@ -3,9 +3,11 @@
 /*
 EXERCICE 1
 -----------
-- écrire la classe Velo qui hérite de Vehicule
+OK- écrire la classe Velo qui hérite de Vehicule
+
 - utiliser le constructeur du parent pour définir
 	les propriétés héritées du parent
+
 
 EXERCICE++
 -----------
