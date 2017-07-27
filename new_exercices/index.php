@@ -1,23 +1,13 @@
 <pre><?php
 
-// Inclusion des classes (dans l'ordre)
-require dirname(__FILE__).DIRECTORY_SEPARATOR.'inc'.DIRECTORY_SEPARATOR.'Vehicle.php';
-require dirname(__FILE__).DIRECTORY_SEPARATOR.'inc'.DIRECTORY_SEPARATOR.'Car.php';
-require dirname(__FILE__).DIRECTORY_SEPARATOR.'inc'.DIRECTORY_SEPARATOR.'Engine.php';
-require dirname(__FILE__).DIRECTORY_SEPARATOR.'inc'.DIRECTORY_SEPARATOR.'Bicycle.php';
+// Mise en route du chargement automatique (PSR-4) des classes
+spl_autoload_register();
 
-// Instance de Vehicle
-$vehicleObject = new Vehicle(
-    'Blue',
-    'Ford',
-    'Fiesta',
-    true
-);
-var_dump($vehicleObject);
-$vehicleObject->displayToto(); // => TotoVehicle
-echo '<br>';
+// J'importe les classes que j'utilise
+use Inc\Engine;
+use Inc\Car;
 
-// Instance de Car
+// Instanciate a Car
 $engine = new Engine(
     230,
     'petrol',
@@ -25,7 +15,6 @@ $engine = new Engine(
     'MERZRTGRZSTRSTRSZTRS',
     'Mercedes'
 );
-
 $mercedes = new Car(
     'Mercedes',
     'Grey',
@@ -36,24 +25,23 @@ $mercedes = new Car(
     4,
     'MER87987AD987987F556768BC'
 );
+
+// Utilisation des méthodes de l'interface
+$mercedes->firstRegistered();
+$mercedes->register('ET-4578');
+
+// un exemple d'erreur !
+try {
+    $mercedes->register('ET4578sfhgfsdh');
+}
+catch (Inc\Exceptions\LicensePlateFormatException $e) {
+    echo 'Format de la plaque incorrect<br/>';
+    echo '<br/>';
+}
+catch (Exception $e) {
+    echo 'Error : '.$e->getMessage().'<br>';
+}
+
 var_dump($mercedes);
-$mercedes->displayToto();// => TotoCarTotoVehicle
-echo '<br>';
-echo Car::QUESTION.'<br>'; // Vitor
-
-// EXO 1
-
-$bike = new Bicycle(
-    "Female",
-    5,
-    4,
-    'pink',
-    'FlowerPower',
-    'GoGirl!',
-    false
-);
-echo '<br>';
-var_dump($bike);
-echo '<br>';
 
 ?></pre>

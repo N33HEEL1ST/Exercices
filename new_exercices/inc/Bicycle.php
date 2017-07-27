@@ -1,5 +1,7 @@
 <?php
 
+namespace Inc;
+
 class Bicycle extends Vehicle {
     // Properties
 
