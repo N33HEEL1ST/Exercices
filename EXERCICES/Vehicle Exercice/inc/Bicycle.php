@@ -14,6 +14,15 @@ class Bicycle extends Vehicle {
     /** @var int */
     public $numberOfGear;
 
+    // Surcharge / Override de la propriété statique
+    public static $validColors = array(
+        'blue',
+        'black',
+        'red',
+        'white',
+        'grey'
+    );
+
 
     // constructeur
     function __construct(
@@ -37,12 +46,7 @@ class Bicycle extends Vehicle {
         );
     }
 // IMPLEMENTED FROM PARENT ABSTRACT CLASS
-    public function isValidColor($color) {
-        $validColors = array(
-            "pink",
-            "green",
-            "black"
-        );
-        return in_array($color, $validColors);
+    public static function isValidColor($color) {
+        return in_array($color, self::$validColors);
     }
 }

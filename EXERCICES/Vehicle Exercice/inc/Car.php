@@ -25,6 +25,15 @@ class Car extends Vehicle implements RegisteredVehicle {
     /** @var string */
     public $licensePlate ;
 
+    // Surcharge / Override de la propriété statique
+    public static $validColors = array(
+        'blue',
+        'black',
+        'red',
+        'white',
+        'grey'
+    );
+
     // Constructor => define value for each property
     public function __construct(
         $brand='',
@@ -59,42 +68,30 @@ class Car extends Vehicle implements RegisteredVehicle {
     }
 
     // surcharge - overload
-    public function displayToto() {
+    public static function displayToto() {
         echo 'TotoCar';
         parent::displayToto();
         echo 'fini';
     }
 
-    /**
-     *
-     * @return string
-     */
+    /**  @return string */
     public function getInfos() {
         return 'La voiture est de marque '.$this->brand.' et de couleur '.$this->color;
     }
 
-    /**
-     *
-     * @param string $newColor
-     */
+    /** * @param string $newColor */
     public function paint($newColor) {
         $this->color = $newColor;
     }
 
     // GETTER
-
-    /**
-     * @return string
-     */
+    /** @return string */
     public function getBrand() {
         return $this->brand;
     }
 
     // SETTER
-
-    /**
-     * @param string $brand
-     */
+    /** @param string $brand */
     public function setBrand($brand) {
         // Validation de la donnée
         if (is_string($brand)) {
@@ -121,12 +118,27 @@ class Car extends Vehicle implements RegisteredVehicle {
 
     // pour avoir la methode abstract du parent ! on fait :
     // netbeans -> alt + instert -> override and implement methode
-    public function isValidColor($color) {
-        $validColors = array(
-            "blue",
-            "white",
-            "grey"
-        );
-        return in_array($color, $validColors);
+    public static function isValidColor($color) {
+        return in_array($color, self::$validColors);
     }
+
+    // // une methode static de la class qui permet de...................
+    // public static function get($id) {
+    //     global $pdo;
+    //
+    //     $sql = 'SELECT * FROM car WHERE car_id = :id';
+    //     $sth = $pdo->prepare($sql);
+    //     $sth->bindValue(':id', $id);
+    //
+    //     if ($sth->execute()) {
+    //         $data = $sth->fetch();
+    //         return new self(   // self dans cet cas c'est la class "Car"
+    //             $data['car_brand'],
+    //             $data['car_model'],
+    //             null,
+    //             intval($data['car_isworking']) == 1
+    //         );
+    //     }
+    // }
+
 }

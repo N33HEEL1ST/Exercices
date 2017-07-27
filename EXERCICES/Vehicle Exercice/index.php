@@ -70,5 +70,9 @@ var_dump($validColor); // false
 $validColor2 = $bike->isValidColor('pink');
 var_dump($validColor2); // true
 
+// ****************
+// Static properities / methodes :
+print_r($mercedes::$validColors); // :: => Paamayim Nekudotayim
+print_r($bike::$validColors);
 
 ?></pre>
