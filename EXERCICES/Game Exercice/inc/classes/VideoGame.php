@@ -27,7 +27,8 @@ class VideoGame extends Game implements \JsonSerializable {
         $editor ="",
         $genre ="",
         $console ="",
-        $price = 0
+        $price = 0,
+        $minimumAge = 0
     ) {
         $this->genre = $genre;
         $this->console = $console;
@@ -35,7 +36,8 @@ class VideoGame extends Game implements \JsonSerializable {
         parent::__construct(
             $title,
             $releaseDate,
-            $editor
+            $editor,
+            $minimumAge
         );
     }
 
@@ -46,19 +48,25 @@ class VideoGame extends Game implements \JsonSerializable {
     public function getTitle(){
         return Game::getTitle();
     }
+
     public function getReleaseDate(){
         return Game::getReleaseDate();
     }
+
     public function getEditor(){
         return Game::getEditor();
     }
+
     public function getGenre(){
         return Game::getGenre();
     }
+
+
         // this Class
     public function getConsole(){
         return $this -> console;
     }
+
     public function getPrice(){
         return floatval($this -> price);
     }
@@ -70,6 +78,7 @@ class VideoGame extends Game implements \JsonSerializable {
         Game::setTitle($title);
     }
 
+
     // autre exo !!
     /**
      * @return float
@@ -79,7 +88,6 @@ class VideoGame extends Game implements \JsonSerializable {
     }
 
     // EXO 5 !
-
     public function jsonSerialize() {
         return array (
             "title" => $this -> getTitle() ,
@@ -87,7 +95,8 @@ class VideoGame extends Game implements \JsonSerializable {
             "editor" => $this -> getEditor() ,
             "genre" => $this -> getGenre() ,
             "console" => $this -> getConsole(),
-            "price" => $this -> getPrice()
+            "price" => $this -> getPrice(),
+            "minimumAge" => $this -> getMinimumAge()
         );
     }
 
@@ -114,5 +123,27 @@ class VideoGame extends Game implements \JsonSerializable {
         echo "<br/><br/>";
         echo "Le jeuvidéo ".$game -> getTitle()." est terminé.";
         echo "<br/>";
+    }
+
+    // EXO 7
+        /** @return array */
+    public function targetPublic() {
+        $publicList = array();
+
+        if ($this->minimumAge <= self::$babyMaxAge) {
+            $publicList[] = 'baby';
+        }
+        if ($this->minimumAge <= self::$childMaxAge) {
+            $publicList[] = 'child';
+        }
+        if ($this->minimumAge <= self::$teenagerMaxAge) {
+            $publicList[] = 'teenager';
+        }
+        if ($this->minimumAge <= self::$adultMaxAge) {
+            $publicList[] = 'adult';
+        }
+        $publicList[] = 'senior';
+
+        return $publicList;
     }
 }

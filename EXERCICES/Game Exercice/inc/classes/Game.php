@@ -11,6 +11,15 @@ abstract class Game {
     protected $editor;
     /**@var string */
     protected $genre;
+    /** @var int */
+    protected $minimumAge;
+
+    // Static properties
+    public static $babyMaxAge = 2;
+    public static $childMaxAge = 11;
+    public static $teenagerMaxAge = 17;
+    public static $adultMaxAge = 59;
+    public static $seniorMaxAge = 127;
 
     const CONSOLE_PC        = "PC" ;
     const CONSOLE_SNES      = "SNES" ;
@@ -25,12 +34,14 @@ abstract class Game {
         $title="",
         $releaseDate=0,
         $editor="",
-        $genre=""
+        $genre="",
+        $minimumAge=0
     ) {
         $this->title = $title;
         $this->releaseDate = $releaseDate;
         $this->editor = $editor;
         $this->genre = $genre;
+        $this->minimumAge = $minimumAge;
     }
 
     // GETTER
@@ -38,14 +49,21 @@ abstract class Game {
     public function getTitle(){
         return $this -> title;
     }
+
     public function getReleaseDate(){
         return date('Y-m-d', $this->releaseDate);
     }
+
     public function getEditor(){
         return $this -> editor;
     }
+
     public function getGenre(){
         return $this -> genre;
+    }
+
+    public function getMinimumAge() {
+        return $this->minimumAge;
     }
 
     // SETTER
@@ -57,9 +75,35 @@ abstract class Game {
         }
     }
 
+    public function setMinimumAge($minimumAge) {
+        $this->minimumAge = $minimumAge;
+    }
+
     // EXO 6
     public abstract function letStart($parameter);
 
     public abstract function displayDebutJeu($game);
     public abstract function displayFinJeu($game);
+
+    // EXO 7
+    /** @return array */
+    public function targetPublic() {
+        $publicList = array();
+
+        if ($this->minimumAge <= self::$babyMaxAge) {
+            $publicList[] = 'baby';
+        }
+        if ($this->minimumAge <= self::$childMaxAge) {
+            $publicList[] = 'child';
+        }
+        if ($this->minimumAge <= self::$teenagerMaxAge) {
+            $publicList[] = 'teenager';
+        }
+        if ($this->minimumAge <= self::$adultMaxAge) {
+            $publicList[] = 'adult';
+        }
+        $publicList[] = 'senior';
+
+        return $publicList;
+    }
 }

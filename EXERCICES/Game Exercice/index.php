@@ -62,3 +62,9 @@ VideoGame::letStart($game_nba_2K16);
 
 VideoGame::displayDebutJeu($game_nba_2K16);
 VideoGame::displayFinJeu($game_nba_2K16);
+
+// EXO 7
+echo "<pre>" ;
+echo "<br/>EXO 7<br/>" ;
+print_r( $nba2k18->targetPublic() );
+echo "</pre>" ;

@@ -3,20 +3,24 @@
 namespace Inc\Classes ;
 
 class CardGame extends Game{
+    /** @var array of int */
+    protected $minimumAge = array(0, 3 , 7 , 12 , 16 , 18, 21);
 
     function __construct(
         $title ="",
         $releaseDate =0,
         $editor ="",
         $genre ="",
-        $console =""
+        $console ="",
+        $minimumAge = 0
     ) {
         parent::__construct(
             $title,
             $releaseDate,
             $editor,
             $genre,
-            $console
+            $console,
+            $minimumAge
         );
     }
 
