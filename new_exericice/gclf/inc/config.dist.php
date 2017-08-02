@@ -5,6 +5,8 @@ define ('__VIEW_PATH__', dirname(__FILE__).DIRECTORY_SEPARATOR.'view'.DIRECTORY_
 
 // Mise en route PSR-4 autoload
 spl_autoload_register();
+// Modification de l'include path car spl_autoload dans fichier de config.php
+set_include_path( get_include_path().PATH_SEPARATOR.__APP_PATH__ );
 
 $config = array(
 	'DB_host' => '',

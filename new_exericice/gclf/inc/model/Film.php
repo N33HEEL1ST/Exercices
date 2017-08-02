@@ -27,6 +27,15 @@ class Film {
 		$this->description = $description;
 	}
 
+	/**
+     *
+     * @global 	\PDO $pdo
+     * @param	int $nbFilmsParPage
+     * @param	int $offsetPage
+     * @param	string $searchTerms
+     * @param	int $categorieId
+     * @return	array|boolean
+     */
 	public static function getAll( $nbFilmsParPage=0, $offsetPage=0, $searchTerms="", $categorieId=0 ){
 		global $pdo ;
 
@@ -73,6 +82,46 @@ class Film {
         }
 
         return false;
+	}
+
+
+	public static function getFilmDetails($currentId){
+		global $pdo;
+		$sql = '
+			SELECT fil_titre, fil_annee, fil_affiche, fil_synopsis, fil_acteurs, fil_filename, cat_nom, sup_nom
+			FROM film
+			INNER JOIN categorie ON categorie.cat_id = film.cat_id
+			INNER JOIN support ON support.sup_id = film.sup_id
+			WHERE fil_id = :filId
+		';
+
+		$pdoStatement = $pdo->prepare($sql);
+		$pdoStatement->bindValue(':filId', $currentId);
+
+		if ($pdoStatement->execute()) {
+			return $pdoStatement->fetch();
+		}
+		else {
+			print_r($pdoStatement->errorInfo());
+		}
+
+		return false;
+	}
+
+	// 4 affiches de films
+	public static function getFourFilms(){
+		global $pdo;
+		$sql = '
+			SELECT fil_id, fil_titre, fil_affiche
+			FROM film
+			WHERE LENGTH(fil_affiche) > 5
+			ORDER BY RAND()
+			LIMIT 4
+		';
+		$pdoStatement = $pdo->query($sql);
+		if ($pdoStatement && $pdoStatement->rowCount() > 0) {
+			return $pdoStatement->fetchAll();
+		}
 	}
 
 	public function getSupport() {

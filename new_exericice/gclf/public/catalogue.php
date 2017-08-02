@@ -2,6 +2,8 @@
 
 require '../inc/config.php';
 
+use \Inc\Model\Film;
+
 // Page par défaut => 1
 $currentPage = 1;
 $searchTerms = '';
