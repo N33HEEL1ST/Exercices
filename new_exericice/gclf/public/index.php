@@ -5,10 +5,6 @@ require '../inc/config.php';
 use Inc\Model\Film;
 use Inc\Model\Categorie;
 
-// Init
-$categorieList = array();
-$moviesList = array();
-
 // 4 catégories
 $categorieList = Categorie::getFourCategories();
 

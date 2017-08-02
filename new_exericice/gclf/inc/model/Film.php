@@ -84,9 +84,15 @@ class Film {
         return false;
 	}
 
-
+	/**
+     *
+     * @global \PDO $pdo
+     * @param int $id
+     * @return array|boolean
+     */
 	public static function getFilmDetails($currentId){
 		global $pdo;
+
 		$sql = '
 			SELECT fil_titre, fil_annee, fil_affiche, fil_synopsis, fil_acteurs, fil_filename, cat_nom, sup_nom
 			FROM film
@@ -96,7 +102,7 @@ class Film {
 		';
 
 		$pdoStatement = $pdo->prepare($sql);
-		$pdoStatement->bindValue(':filId', $currentId);
+		$pdoStatement->bindValue(':filId', $currentId, \PDO::PARAM_INT);
 
 		if ($pdoStatement->execute()) {
 			return $pdoStatement->fetch();
@@ -108,6 +114,11 @@ class Film {
 		return false;
 	}
 
+	/**
+     *
+     * @global \PDO $pdo
+     * @return array|boolean
+     */
 	// 4 affiches de films
 	public static function getFourFilms(){
 		global $pdo;

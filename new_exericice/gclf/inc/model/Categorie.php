@@ -19,6 +19,11 @@ class Categorie {
 		return $this->nom;
 	}
 
+	/**
+     *
+     * @global \PDO $pdo
+     * @return array|boolean
+     */
 	public static function getFourCategories(){
 		global $pdo;
 		// 4 catégories
@@ -34,5 +39,7 @@ class Categorie {
 		if ($pdoStatement && $pdoStatement->rowCount() > 0) {
 			return $pdoStatement->fetchAll();
 		}
+
+		return false;
 	}
 }
