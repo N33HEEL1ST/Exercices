@@ -1,6 +1,7 @@
 <?php
 
 define ('__APP_PATH__', dirname(dirname(__FILE__)));
+define ('__CONTROLLER_PATH__', dirname(__FILE__).DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR);
 define ('__VIEW_PATH__', dirname(__FILE__).DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR);
 
 // Mise en route PSR-4 autoload

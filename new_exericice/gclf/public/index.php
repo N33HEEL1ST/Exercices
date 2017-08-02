@@ -2,15 +2,14 @@
 
 require '../inc/config.php';
 
-use Inc\Model\Film;
-use Inc\Model\Categorie;
+// récuperation de la section demandée
+$section = isset( $_GET["section"] ) ? trim( $_GET["section"] ) : "" ;
 
-// 4 catégories
-$categorieList = Categorie::getFourCategories();
-
-// 4 affiches de films
-$moviesList = Film::getFourFilms();
-
-require __VIEW_PATH__.'header.php';
-require __VIEW_PATH__.'home.php';
-require __VIEW_PATH__.'footer.php';
+if ( $section == "catalogue" ) {
+    // inclusion du controller
+    require __CONTROLLER_PATH__."catalogue.php";
+}
+else if ( empty($section) ){
+    // inclusion de la home
+    require __CONTROLLER_PATH__."home.php";
+}

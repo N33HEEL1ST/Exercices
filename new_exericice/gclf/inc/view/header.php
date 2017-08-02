@@ -11,7 +11,11 @@
 			<a href="form_film.php">Ajouter un film</a>&nbsp;&nbsp;
 		</div>
 		<div class="search">
-			<form action="catalogue.php" method="get" id="headerSearch">
+			<form action="index.php" method="get" id="headerSearch">
+
+				<!-- => ?section=catalogue -->
+				<input type="hidden" name="section" value="catalogue" />
+
 				<input type="text" class="searchInput" placeholder="Titre, acteur, etc." name="q" value="" />
 				<input type="submit" class="searchSubmit" value="Rechercher"/>
 			</form>
