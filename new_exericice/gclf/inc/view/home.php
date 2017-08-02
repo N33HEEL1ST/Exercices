@@ -16,7 +16,7 @@
 </section>
 <section class="listeMovies">
 	<?php foreach ($moviesList as $currentMovieInfos) : ?>
-	<a href="details.php?id=<?= $currentMovieInfos['fil_id']; ?>" class="homeAffiche">
+	<a href="index.php?section=details&id=<?= $currentMovieInfos['fil_id']; ?>" class="homeAffiche">
 		<img src="<?= $currentMovieInfos['fil_affiche']; ?>" height="200" border="0"><br>
 		<span><?= $currentMovieInfos['fil_titre']; ?></span>
 	</a>

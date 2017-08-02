@@ -1,4 +1,5 @@
-<form action="" method="get">
+<form action="index.php" method="get">
+	<input type="hidden" name="section" value="form-film" />
 		<legend>Pré-remplir avec IMDb</legend>
 		<fieldset>
 			<input type="text" name="imdb" value="<?php echo $imdb; // on remplit le champ de recherche IMDb par les termes actuellement recherchés ?>" />
@@ -54,7 +55,7 @@
 					<?php for ($annee=date('Y');$annee>1930;$annee--) : ?>
 					<option value="<?php echo $annee; ?>"<?php echo $fil_annee==$annee ? ' selected="selected"' : ''; ?>><?php echo $annee; ?></option>
 					<?php endfor; ?>
-				</select></td>	
+				</select></td>
 			</tr>
 			<tr>
 				<td>Synopsis :&nbsp;</td>
@@ -79,7 +80,7 @@
 			<tr>
 				<td></td>
 				<td><input type="submit" value="<?php if ($currentId > 0) { echo 'Modifier'; } else { echo 'Ajouter'; } ?>"/></td>
-			</tr>	
+			</tr>
 			</table>
 		</fieldset>
 	</form>

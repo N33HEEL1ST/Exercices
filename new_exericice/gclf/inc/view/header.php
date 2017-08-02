@@ -7,8 +7,8 @@
 	<header>
 		<div class="links">
 			<a href="index.php">Accueil</a>&nbsp;&nbsp;
-			<a href="form_categorie.php">Gérer les catégories</a>&nbsp;&nbsp;
-			<a href="form_film.php">Ajouter un film</a>&nbsp;&nbsp;
+			<a href="index.php?section=form-categorie">Gérer les catégories</a>&nbsp;&nbsp;
+			<a href="index.php?section=form-film">Ajouter un film</a>&nbsp;&nbsp;
 		</div>
 		<div class="search">
 			<form action="index.php" method="get" id="headerSearch">

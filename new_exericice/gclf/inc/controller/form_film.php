@@ -1,7 +1,5 @@
 <?php
 
-require '../inc/config.php';
-
 // Si un formulaire a été soumis
 // Attention, si plusieurs formulaires en POST sur la même page, il va falloir les distinguer
 if (!empty($_POST)) {
@@ -174,7 +172,7 @@ if (!empty($_GET['imdbId']) || sizeof($imdbTitlesList) == 1) {
 
 		if ($imdbResult->code == 200) {
 			$movie = $imdbResult->data;
-			
+
 			// On donne les bonnes valeurs aux variables destinées à l'affichage
 			// => pré-remplir le formulaire
 			$fil_titre = $movie->Title;

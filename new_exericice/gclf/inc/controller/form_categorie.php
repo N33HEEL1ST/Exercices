@@ -1,7 +1,5 @@
 <?php
 
-require '../inc/config.php';
-
 // Gestion du POST du formulaire
 if (!empty($_POST)) {
 	$cat_id = isset($_POST['cat_id']) ? intval($_POST['cat_id']) : 0;

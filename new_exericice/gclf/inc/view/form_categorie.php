@@ -2,7 +2,8 @@
 		<h1>Gestion des catégories</h1>
 		<!-- je mets ce formulaire en method="get" car la donnée n'est pas à sécuriser
 		et car on veut voir ?id=ID dans l'URL de la page pour la modification -->
-		<form action="" method="get">
+		<form action="index.php" method="get">
+			<input type="hidden" name="section" value="form-categorie" />
 			<select name="id">
 				<option value="0">ajouter une catégorie</option>
 				<!-- je parcours les catégories pour remplir le menu déroulant des catégories -->
@@ -24,7 +25,7 @@
 			<tr>
 				<td></td>
 				<td><input type="submit" value="Valider"/></td>
-			</tr>	
+			</tr>
 			</table>
 		</fieldset>
 	</form>
