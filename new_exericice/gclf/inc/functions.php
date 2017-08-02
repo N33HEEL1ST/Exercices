@@ -14,7 +14,7 @@ function getAllCat() {
 
 	// J'initialise ma variable de retour
 	$myList = array();
-	
+
 	$sql = '
 		SELECT cat_id, cat_nom
 		FROM categorie
@@ -25,4 +25,24 @@ function getAllCat() {
 	}
 
 	return $myList;
+}
+
+function generateUrl($pageName, $id=0){
+	global $config;
+
+	if ($pageName == "home"){
+		return $config['Base_URL'];
+	}
+	else if ($pageName == "catalogue"){
+		return $config['Base_URL'].'catalogue/';
+	}
+	else if ($pageName == "form-categorie"){
+		return $config['Base_URL'].'form-categorie/';
+	}
+	else if ($pageName == "form-film"){
+		return $config['Base_URL'].'form-film/';
+	}
+	else if ($pageName == "details"){
+		return $config['Base_URL'].'catalogue/details/?id='.$id;
+	}
 }

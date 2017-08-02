@@ -15,6 +15,7 @@ $config = array(
 	'DB_password' => '',
 	'DB_database' => 'gclf',
 	'OMDb_API_key' => '',
+	'Base_URL' => '/Exercices/new_exericice/gclf/public/', // obligatoire car on doit définir les URL en absolu
 );
 
 require dirname(__FILE__).DIRECTORY_SEPARATOR.'db.php';
