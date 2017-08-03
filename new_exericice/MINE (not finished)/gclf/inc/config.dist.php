@@ -1,6 +1,7 @@
 <?php
 
 define ('__APP_PATH__', dirname(dirname(__FILE__)));
+define ('__CONTROLLER_PATH__', dirname(__FILE__).DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR);
 define ('__VIEW_PATH__', dirname(__FILE__).DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR);
 
 // Mise en route PSR-4 autoload
@@ -9,11 +10,12 @@ spl_autoload_register();
 set_include_path( get_include_path().PATH_SEPARATOR.__APP_PATH__ );
 
 $config = array(
-	'DB_host' => '',
-	'DB_user' => '',
+	'DB_host' => 'localhost',
+	'DB_user' => 'root',
 	'DB_password' => '',
-	'DB_database' => '',
+	'DB_database' => 'gclf',
 	'OMDb_API_key' => '',
+	'Base_URL' => '/Exercices/new_exericice/MINE%20(not%20finished)/gclf/public/', // obligatoire car on doit définir les URL en absolu
 );
 
 require dirname(__FILE__).DIRECTORY_SEPARATOR.'db.php';

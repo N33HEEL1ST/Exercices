@@ -1,5 +1,5 @@
 RewriteEngine on
-RewriteBase /Exercices/new_exericice/gclf/public/
+RewriteBase /Exercices/new_exericice/MINE%20(not%20finished)/gclf/public/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?path=$1 [NC,L,QSA]
