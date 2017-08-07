@@ -9,7 +9,14 @@
 <body>
 	<div class="container">
 		<header>
-			<h1>W :: <?= $this->e($title) ?></h1>
+			<h1>Project M :: <?= $this->e($title) ?></h1>
+			<nav>
+				<ul>
+					<li><a href="<?= $this->url('default_home') ?>">HOME</a></li>
+					<li><a href="<?= $this->url('console_consoles') ?>">Consoles</a></li>
+					<li><a href="#">Add a Videogame</a></li>
+				</ul>
+			</nav>
 		</header>
 
 		<section>
