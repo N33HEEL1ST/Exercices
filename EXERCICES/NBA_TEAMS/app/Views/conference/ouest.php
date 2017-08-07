@@ -1,6 +1,6 @@
 <?php
 //hérite du fichier layout.php à la racine de app/Views/
-$this->layout('layoutBootstrap', array('title' => 'Conférence Est'));
+$this->layout('layoutBootstrap', array('title' => 'Conférence Ouest'));
 ?>
 
 <?php

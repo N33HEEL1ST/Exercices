@@ -13,4 +13,10 @@ $w_routes = array(
 	['GET|POST', '/ouest', 'Conference#ouest', 'conference_ouest2'],
 
     ['GET', '/[est|ouest:conference]/division/[i:id]', 'Division#division', 'division_division'],
+
+        // Users signin & signup
+    ['GET', '/signin/', 'Users#signin', 'users_signin'],
+    ['POST', '/signin/', 'Users#signinPost', 'users_signin_post'],
+
+    ['GET|POST', '/signup/', 'Users#signup', 'users_signup'],
 );
