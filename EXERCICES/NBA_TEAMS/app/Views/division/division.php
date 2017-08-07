@@ -1,6 +1,6 @@
 <?php
 //hérite du fichier layout.php à la racine de app/Views/
-$this->layout('layout', array('title' => 'Teams of Est'));
+$this->layout('layoutBootstrap', array('title' => 'Teams of Est'));
 ?>
 
 <?php
@@ -22,9 +22,3 @@ $this->start('main_content'); ?>
 <?php
 //fin du bloc
 $this->stop('main_content'); ?>
-
-
-<?php
-//hérite du fichier layout.php à la racine de app/Views/
-$this->layout('layout', array('title' => 'Division'));
-?>

@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Perdu ?']) ?>
+<?php $this->layout('layoutBootstrap', ['title' => 'Perdu ?']) ?>
 
 <?php $this->start('main_content'); ?>
 <h1>404. Perdu ?</h1>

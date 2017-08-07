@@ -1,6 +1,6 @@
 <?php
 //hérite du fichier layout.php à la racine de app/Views/
-$this->layout('layout', array('title' => 'Mon titre à moi !'));
+$this->layout('layoutBootstrap', array('title' => 'Mon titre à moi !'));
 ?>
 
 <?php

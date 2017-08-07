@@ -1,5 +1,6 @@
 <?php
 
+
 $w_config = [
    	//information de connexion à la bdd
 	'db_host' => 'localhost',						//hôte (ip, domaine) de la bdd
