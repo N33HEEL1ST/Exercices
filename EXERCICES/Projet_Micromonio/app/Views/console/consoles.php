@@ -2,9 +2,26 @@
 
 <?php $this->start('main_content') ?>
 	<h2>Consoles :</h2>
+
+	<p> Ici la list de tous les consoles : </p>
+
 	<ul>
-		<li><a href="#">list with link</a></li>
+		<?php foreach ($consolesInfos as $currentRow) : ?>
+			<li>
+				<a href=
+					"
+						<?= $this->url(
+							'console_get_the_console',
+							[
+								'id' => $currentRow['con_id'] ,
+								'consolessss' => $currentRow['con_name'] ,
+							]
+						)?>
+					">
+					<?php echo $currentRow["con_name"] ?>
+				</a>
+			</li>
+		<?php endforeach; ?>
 	</ul>
-	<p>paragraph</p>
 
 <?php $this->stop('main_content') ?>
