@@ -14,7 +14,7 @@
 				<ul>
 					<li><a href="<?= $this->url('default_home') ?>">HOME</a></li>
 					<li><a href="<?= $this->url('console_consoles') ?>">Consoles</a></li>
-					<li><a href="#">Add a Videogame</a></li>
+					<li><a href="<?= $this->url('add_add_game') ?>">Add a Videogame</a></li>
 				</ul>
 			</nav>
 		</header>
